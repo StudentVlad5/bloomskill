@@ -2,7 +2,7 @@
   "name": "event-shop",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://studentvlad5.github.io/bloomskill/",
+  "homepage": "https://bloomskill.vercel.app/",
   "dependencies": {
     "@babel/eslint-parser": "^7.23.3",
     "@emotion/react": "^11.11.3",
