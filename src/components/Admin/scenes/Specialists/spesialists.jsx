@@ -316,7 +316,6 @@ const Specialists = () => {
   return (
     <Box m="20px" width="100%">
       {isLoading ? onLoading() : onLoaded()}
-      {error && onFetchError('Whoops, something went wrong')}
       <Box
         m="40px 0 0 0"
         height="75vh"
