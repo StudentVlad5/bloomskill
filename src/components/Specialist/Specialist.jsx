@@ -11,7 +11,7 @@ import { onFetchError } from 'helpers/Messages/NotifyMessages';
 import { StatusContext } from 'components/ContextStatus/ContextStatus';
 import { FormMessage } from 'components/FormMessage/FormMessage';
 import { BackButton } from 'helpers/BackLink/BackLink';
-import { BASE_URL_IMG } from 'helpers/constants';
+import { BASE_URL_AVATAR, BASE_URL_IMG } from 'helpers/constants';
 import defaultImg from 'images/defaultUserPhoto.jpg';
 import {
   Container,
@@ -167,12 +167,11 @@ export const Specialist = ({ specialist }) => {
   return (
     <Container>
       <DescriptionSection>
-        <BackButton to="/specialists">{t('Назад')}</BackButton>
+        <BackButton to="/specialists">{t('Retour')}</BackButton>
         <Image
           src={
             image
-              ? BASE_URL_IMG +
-                'avatars/' +
+              ? BASE_URL_AVATAR +
                 image.split('/')[image.split('/').length - 1]
               : defaultImg
           }
@@ -201,7 +200,7 @@ export const Specialist = ({ specialist }) => {
       </DescriptionSection>
       <EventsSection>
         <Title>
-          {t('Найближчі заходи')} {firstName(name)}
+          {t('Les prochains evenements')} {firstName(name)}
         </Title>
         {isLoading ? onLoading() : onLoaded()}
         {error && onFetchError(t('Whoops, something went wrong'))}
@@ -210,7 +209,7 @@ export const Specialist = ({ specialist }) => {
           !error && (
             <Subtitle>
               {t(
-                'Вибачте, найближчим часом спеціаліст не проводить майстер-класи'
+                'Nous sommes désolés, le spécialiste ne fait pas les ateliers ces prochains jours'
               )}
             </Subtitle>
           )}
@@ -240,7 +239,6 @@ export const Specialist = ({ specialist }) => {
                           src={
                             event.image
                               ? BASE_URL_IMG +
-                                'events/' +
                                 event.image.split('/')[
                                   event.image.split('/').length - 1
                                 ]
@@ -256,13 +254,13 @@ export const Specialist = ({ specialist }) => {
                             <Name>{event.name}</Name>
                             <DateTimeWrapper>
                               <li>
-                                <Head>{t('дата')}</Head>
+                                <Head>{t('Date')}</Head>
                                 <DateTime>
                                   {new Date(event.date).toLocaleDateString()}
                                 </DateTime>
                               </li>
                               <li>
-                                <Head>{t('час')}</Head>
+                                <Head>{t('Heure')}</Head>
                                 <DateTime>{event.time}</DateTime>
                               </li>
                             </DateTimeWrapper>
@@ -272,7 +270,7 @@ export const Specialist = ({ specialist }) => {
                                 : event.description}
                             </Describe>
                             <BtnLink to={`/events/${event._id}`}>
-                              <span>{t('Детальніше')}</span>
+                              <span>{t('Suivant')}</span>
                             </BtnLink>
                           </DetailsWrapper>
                         )}
@@ -317,7 +315,6 @@ export const Specialist = ({ specialist }) => {
                               src={
                                 event.image
                                   ? BASE_URL_IMG +
-                                    'events/' +
                                     event.image.split('/')[
                                       event.image.split('/').length - 1
                                     ]
@@ -333,7 +330,7 @@ export const Specialist = ({ specialist }) => {
                                 <Name>{event.name}</Name>
                                 <DateTimeWrapper>
                                   <li>
-                                    <Head>{t('дата')}</Head>
+                                    <Head>{t('Date')}</Head>
                                     <DateTime>
                                       {new Date(
                                         event.date
@@ -341,7 +338,7 @@ export const Specialist = ({ specialist }) => {
                                     </DateTime>
                                   </li>
                                   <li>
-                                    <Head>{t('час')}</Head>
+                                    <Head>{t('Heure')}</Head>
                                     <DateTime>{event.time}</DateTime>
                                   </li>
                                 </DateTimeWrapper>
@@ -351,7 +348,7 @@ export const Specialist = ({ specialist }) => {
                                     : event.description}
                                 </Describe>
                                 <BtnLink to={`/events/${event._id}`}>
-                                  <span>{t('Детальніше')}</span>
+                                  <span>{t('Suivant')}</span>
                                 </BtnLink>
                               </DetailsWrapper>
                             )}
@@ -412,7 +409,6 @@ export const Specialist = ({ specialist }) => {
                               src={
                                 event.image
                                   ? BASE_URL_IMG +
-                                    'events/' +
                                     event.image.split('/')[
                                       event.image.split('/').length - 1
                                     ]
@@ -428,7 +424,7 @@ export const Specialist = ({ specialist }) => {
                                 <Name>{event.name}</Name>
                                 <DateTimeWrapper>
                                   <li>
-                                    <Head>{t('дата')}</Head>
+                                    <Head>{t('Date')}</Head>
                                     <DateTime>
                                       {new Date(
                                         event.date
@@ -436,7 +432,7 @@ export const Specialist = ({ specialist }) => {
                                     </DateTime>
                                   </li>
                                   <li>
-                                    <Head>{t('час')}</Head>
+                                    <Head>{t('Heure')}</Head>
                                     <DateTime>{event.time}</DateTime>
                                   </li>
                                 </DateTimeWrapper>
@@ -446,7 +442,7 @@ export const Specialist = ({ specialist }) => {
                                     : event.description}
                                 </Describe>
                                 <BtnLink to={`/events/${event._id}`}>
-                                  <span>{t('Детальніше')}</span>
+                                  <span>{t('Suivant')}</span>
                                 </BtnLink>
                               </DetailsWrapper>
                             )}
@@ -503,7 +499,6 @@ export const Specialist = ({ specialist }) => {
                               src={
                                 event.image
                                   ? BASE_URL_IMG +
-                                    'events/' +
                                     event.image.split('/')[
                                       event.image.split('/').length - 1
                                     ]
@@ -519,7 +514,7 @@ export const Specialist = ({ specialist }) => {
                                 <Name>{event.name}</Name>
                                 <DateTimeWrapper>
                                   <li>
-                                    <Head>{t('дата')}</Head>
+                                    <Head>{t('Date')}</Head>
                                     <DateTime>
                                       {new Date(
                                         event.date
@@ -527,7 +522,7 @@ export const Specialist = ({ specialist }) => {
                                     </DateTime>
                                   </li>
                                   <li>
-                                    <Head>{t('час')}</Head>
+                                    <Head>{t('Heure')}</Head>
                                     <DateTime>{event.time}</DateTime>
                                   </li>
                                 </DateTimeWrapper>
@@ -537,7 +532,7 @@ export const Specialist = ({ specialist }) => {
                                     : event.description}
                                 </Describe>
                                 <BtnLink to={`/events/${event._id}`}>
-                                  <span>{t('Детальніше')}</span>
+                                  <span>{t('Suivant')}</span>
                                 </BtnLink>
                               </DetailsWrapper>
                             )}
@@ -561,7 +556,7 @@ export const Specialist = ({ specialist }) => {
           )}
       </EventsSection>
       <MessageSection>
-        <Title>{t('Є питання до спеціаліста')}?</Title>
+        <Title>{t('Vous avez des question au spécialiste')}?</Title>
         <FormMessage specialist={specialist} />
       </MessageSection>
     </Container>

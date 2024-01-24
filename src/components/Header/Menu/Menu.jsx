@@ -14,35 +14,35 @@ export const Menu = ({ onClose }) => {
       <MobileNavigation onClick={() => onClose()}>
         <ul>
           <li>
-            <NavLink to="/" aria-label="Home" data-info="Home">
-              {t('Головна')}
+            <NavLink to="/" aria-label={t('Accueil')} data-info="Home">
+              {t('Accueil')}
             </NavLink>
           </li>
           <li>
             <NavLink
               to="/specialists"
-              aria-label="The team of specialists"
+              aria-label={t('Les spécialistes')}
               data-info="Team"
             >
-              {t('Спеціалісти')}
+              {t('Les spécialistes')}
             </NavLink>
           </li>
           <li>
             <NavLink
               to="/events"
-              aria-label="Events calendar"
+              aria-label={t('Caléndrier des evenements')}
               data-info="Events calendar"
             >
-              {t('Календар подій')}
+              {t('Caléndrier des evenements')}
             </NavLink>
           </li>
           <li>
             <NavLink
               to="/about"
-              aria-label="More information about us"
+              aria-label={t('A propos')}
               data-info="About"
             >
-              {t('Про нас')}
+              {t('A propos')}
             </NavLink>
           </li>
         </ul>

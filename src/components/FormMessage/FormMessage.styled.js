@@ -6,7 +6,7 @@ import { BtnAccent } from 'components/baseStyles/Button.styled';
 export const FormList = styled(Form)`
   display: flex;
   flex-direction: column;
-  /* gap: 30px; */
+  gap: 30px;
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     gap: 45px;
@@ -15,19 +15,21 @@ export const FormList = styled(Form)`
 `;
 
 export const FieldsWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 20px;
+  /* gap: 20px; */
   width: 100%;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    display: grid;
+    align-items: center;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    grid-gap: 20px;
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    gap: 70px;
+    grid-gap: 70px;
   }
 
   & > div {
@@ -103,7 +105,7 @@ export const FormInput = styled(Field)`
 
 export const Error = styled.span`
   position: absolute;
-  bottom: -10px;
+  bottom: -15px;
   right: 0;
   z-index: 2;
 
@@ -120,15 +122,25 @@ export const Error = styled.span`
 `;
 
 export const FormBtn = styled(BtnAccent)`
-  margin-top: 30px;
+  /* margin-top: 30px;
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     margin-top: 0;
+  } */
+`;
+
+export const LableBoxMes = styled.div`
+  margin-bottom: 20px;
+
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    margin-bottom: 0;
   }
 `;
 
 export const FormInputMessage = styled.textarea`
-  height: 158px;
+  width: 100%;
+  /* height: 158px; */
   padding: 15px;
+  resize: none;
 
   font-family: ${theme.fonts[0]};
   font-size: 16px;
@@ -140,15 +152,22 @@ export const FormInputMessage = styled.textarea`
   background: ${theme.colors.white};
   border: 1px solid ${theme.colors.grey2};
   border-radius: 10px;
+
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  /* 
+
+  @supports (-webkit-touch-callout: none) and (not (translate: none)) {
+    &:last-child {
+      margin-bottom: 20px;
+    }
+  }
+
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
-  } */
+    height: 100%;
+  }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    height: 100%;
     max-width: 530px;
     padding: 25px 30px;
   }

@@ -8,7 +8,7 @@ import { fetchData } from 'services/APIservice';
 import { onLoading, onLoaded } from 'helpers/Loader/Loader';
 import { onFetchError } from 'helpers/Messages/NotifyMessages';
 import { StatusContext } from 'components/ContextStatus/ContextStatus';
-import { BASE_URL_IMG } from 'helpers/constants';
+import { BASE_URL_AVATAR } from 'helpers/constants';
 import defaultImg from 'images/defaultUserPhoto.jpg';
 import {
   Container,
@@ -22,9 +22,8 @@ import {
   ImgBox,
   ItemImg,
   Name,
-  TeamListItem,
-} from 'components/Team/Team.styled';
-import { Pagination, BtnPagination } from './TopSpecialists.styled';
+  } from 'components/Team/Team.styled';
+import { Pagination, BtnPagination, TeamListItem } from './TopSpecialists.styled';
 import { ViewportBox } from '../TopEvents/TopEvents.styled';
 
 export const TopSpecialists = () => {
@@ -67,11 +66,11 @@ export const TopSpecialists = () => {
       }
     })();
   }, [selectedLanguage, t]);
-    
+
   return (
     <Section>
       <Container>
-        <Title>{t('Популярні спеціалісти')}</Title>
+        <Title>{t('Les spécialistes populaires')}</Title>
         {isLoading ? onLoading() : onLoaded()}
         {error && onFetchError(t('Whoops, something went wrong'))}
         {specialists.length > 0 && !error && (
@@ -122,8 +121,7 @@ export const TopSpecialists = () => {
                           <ItemImg
                             src={
                               specialist.image
-                                ? BASE_URL_IMG +
-                                  'avatars/' +
+                                ? BASE_URL_AVATAR +
                                   specialist.image.split('/')[
                                     specialist.image.split('/').length - 1
                                   ]
@@ -145,7 +143,7 @@ export const TopSpecialists = () => {
                           <BtnLink
                             to={`/specialists/${specialist.specialistId}`}
                           >
-                            <span>{t('Детальніше')}</span>
+                            <span>{t('Suivant')}</span>
                           </BtnLink>
                         </DetailsWrapper>
                       </TeamListItem>
@@ -180,8 +178,7 @@ export const TopSpecialists = () => {
                           <ItemImg
                             src={
                               specialist.image
-                                ? BASE_URL_IMG +
-                                  'avatars/' +
+                                ? BASE_URL_AVATAR +
                                   specialist.image.split('/')[
                                     specialist.image.split('/').length - 1
                                   ]
@@ -203,7 +200,7 @@ export const TopSpecialists = () => {
                           <BtnLink
                             to={`/specialists/${specialist.specialistId}`}
                           >
-                            <span>{t('Детальніше')}</span>
+                            <span>{t('Suivant')}</span>
                           </BtnLink>
                         </DetailsWrapper>
                       </TeamListItem>

@@ -4,7 +4,7 @@ import { fetchData } from 'services/APIservice';
 import { onLoading, onLoaded } from 'helpers/Loader/Loader';
 import { onFetchError } from 'helpers/Messages/NotifyMessages';
 import { StatusContext } from 'components/ContextStatus/ContextStatus';
-import { BASE_URL_IMG } from 'helpers/constants';
+import { BASE_URL_AVATAR } from 'helpers/constants';
 import defaultImg from 'images/defaultUserPhoto.jpg';
 import {
   Container,
@@ -74,7 +74,7 @@ export const Team = () => {
   return (
     <Section>
       <Container>
-        <Title>{t('Наші спеціалісти')}</Title>
+        <Title>{t('Nos Spécialistes')}</Title>
         {isLoading ? onLoading() : onLoaded()}
         {error && onFetchError(t('Whoops, something went wrong'))}
         {specialists.length > 0 && !error && (
@@ -99,8 +99,7 @@ export const Team = () => {
                       <ItemImg
                         src={
                           specialist.image
-                            ? BASE_URL_IMG +
-                              'avatars/' +
+                            ? BASE_URL_AVATAR +
                               specialist.image.split('/')[
                                 specialist.image.split('/').length - 1
                               ]
@@ -120,7 +119,7 @@ export const Team = () => {
                           : specialist.description}
                       </Describe>
                       <BtnLink to={`/specialists/${specialist.specialistId}`}>
-                        <span>{t('Детальніше')}</span>
+                        <span>{t('Suivant')}</span>
                       </BtnLink>
                     </DetailsWrapper>
                   </TeamListItem>
@@ -134,7 +133,7 @@ export const Team = () => {
             aria-label="More specialists"
             onClick={() => end(8)}
           >
-            <span>{t('Показати більше')}</span>
+            <span>{t('Voir plus')}</span>
           </BtnMore>
         )}
       </Container>

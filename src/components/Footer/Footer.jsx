@@ -20,7 +20,7 @@ export const Footer = () => {
         <ContactsBox>
           {/* <Logo /> */}
           <Contacts>
-            <p>{t('Контакти')}</p>
+            <p>{t('Contactes')}</p>
             <ul>
               <li>
                 <a href="mailto:test@gmail.com" aria-label="email">
@@ -34,18 +34,20 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://www.facebook.com/"
+                  href="https://www.facebook.com/profile.php?id=61555733189984"
                   target="_blank"
                   rel="noreferrer noopener"
+                  aria-label="facebook"
                 >
                   <svg width="24" height="24">
                     <use href={sprite + '#facebook'}></use>
                   </svg>
                 </a>
                 <a
-                  href="https://www.instagram.com/"
+                  href="https://www.instagram.com/bloomskill/"
                   target="_blank"
                   rel="noreferrer noopener"
+                  aria-label="instagram"
                 >
                   <svg width="24" height="24">
                     <use href={sprite + '#instagram'}></use>

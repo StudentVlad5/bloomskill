@@ -28,6 +28,7 @@ import {
   Head,
   DateTime,
   ViewportBox,
+  EventList,
 } from './TopEvents.styled';
 
 export const TopEvents = () => {
@@ -154,9 +155,9 @@ export const TopEvents = () => {
   return (
     <EventsSection>
       <Container>
-        <Title>{t('Найближчі заходи')}</Title>
+        <Title>{t('Les prochains evenements')}</Title>
         <BtnLinkText to={`/events`}>
-          <span>{t('Інші події')}</span>
+          <span>{t('Autres evenements')}</span>
         </BtnLinkText>
         {isLoading ? onLoading() : onLoaded()}
         {error && onFetchError(t('Whoops, something went wrong'))}
@@ -208,46 +209,47 @@ export const TopEvents = () => {
                   .map((event, i) => {
                     return (
                       <SwiperSlide key={i}>
-                        <EventListItem>
-                          <ItemImg
-                            src={
-                              event.image
-                                ? BASE_URL_IMG +
-                                  'events/' +
-                                  event.image.split('/')[
-                                    event.image.split('/').length - 1
-                                  ]
-                                : defaultImg
-                            }
-                            alt={event.name}
-                            width="402"
-                            height="366"
-                            loading="lazy"
-                          ></ItemImg>
-                          <DetailsWrapper>
-                            <Name>{event.name}</Name>
-                            <DateTimeWrapper>
-                              <li>
-                                <Head>{t('дата')}</Head>
-                                <DateTime>
-                                  {new Date(event.date).toLocaleDateString()}
-                                </DateTime>
-                              </li>
-                              <li>
-                                <Head>{t('час')}</Head>
-                                <DateTime>{event.time}</DateTime>
-                              </li>
-                            </DateTimeWrapper>
-                            <Describe>
-                              {event.description.length > 50
-                                ? event.description.slice(0, 50) + ' ...'
-                                : event.description}
-                            </Describe>
-                            <BtnLink to={`/events/${event._id}`}>
-                              <span>{t('Детальніше')}</span>
-                            </BtnLink>
-                          </DetailsWrapper>
-                        </EventListItem>
+                        <EventList>
+                          <EventListItem>
+                            <ItemImg
+                              src={
+                                event.image
+                                  ? BASE_URL_IMG +
+                                    event.image.split('/')[
+                                      event.image.split('/').length - 1
+                                    ]
+                                  : defaultImg
+                              }
+                              alt={event.name}
+                              width="402"
+                              height="366"
+                              loading="lazy"
+                            ></ItemImg>
+                            <DetailsWrapper>
+                              <Name>{event.name}</Name>
+                              <DateTimeWrapper>
+                                <li>
+                                  <Head>{t('Date')}</Head>
+                                  <DateTime>
+                                    {new Date(event.date).toLocaleDateString()}
+                                  </DateTime>
+                                </li>
+                                <li>
+                                  <Head>{t('Heure')}</Head>
+                                  <DateTime>{event.time}</DateTime>
+                                </li>
+                              </DateTimeWrapper>
+                              <Describe>
+                                {event.description.length > 50
+                                  ? event.description.slice(0, 50) + ' ...'
+                                  : event.description}
+                              </Describe>
+                              <BtnLink to={`/events/${event._id}`}>
+                                <span>{t('Suivant')}</span>
+                              </BtnLink>
+                            </DetailsWrapper>
+                          </EventListItem>
+                        </EventList>
                       </SwiperSlide>
                     );
                   })}
@@ -284,7 +286,6 @@ export const TopEvents = () => {
                             src={
                               event.image
                                 ? BASE_URL_IMG +
-                                  'events/' +
                                   event.image.split('/')[
                                     event.image.split('/').length - 1
                                   ]
@@ -299,13 +300,13 @@ export const TopEvents = () => {
                             <Name>{event.name}</Name>
                             <DateTimeWrapper>
                               <li>
-                                <Head>{t('дата')}</Head>
+                                <Head>{t('Date')}</Head>
                                 <DateTime>
                                   {new Date(event.date).toLocaleDateString()}
                                 </DateTime>
                               </li>
                               <li>
-                                <Head>{t('час')}</Head>
+                                <Head>{t('Heure')}</Head>
                                 <DateTime>{event.time}</DateTime>
                               </li>
                             </DateTimeWrapper>
@@ -315,7 +316,7 @@ export const TopEvents = () => {
                                 : event.description}
                             </Describe>
                             <BtnLink to={`/events/${event._id}`}>
-                              <span>{t('Детальніше')}</span>
+                              <span>{t('Suivant')}</span>
                             </BtnLink>
                           </DetailsWrapper>
                         </EventListItem>

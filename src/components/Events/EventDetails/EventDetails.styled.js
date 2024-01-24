@@ -3,8 +3,6 @@ import { theme } from 'components/baseStyles/Variables.styled';
 import { NavLink } from 'react-router-dom';
 
 export const EventTitle = styled.h1`
-  margin-bottom: 20px;
-
   color: ${props => props.theme.white_text};
   font-family: ${theme.fonts[0]};
   font-size: 24px;
@@ -17,7 +15,7 @@ export const EventTitle = styled.h1`
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 
     font-size: 36px;
     line-height: 45.992px;
@@ -46,7 +44,7 @@ export const EventHeading = styled.ul`
     padding: 15px 40px;
     gap: 40px;
 
-    border-radius: 40px 0px 0px 0px;
+    /* border-radius: 40px 0px 0px 0px; */
     background-color: ${theme.colors.fon};
 
     position: absolute;
@@ -67,7 +65,7 @@ export const EventHeading2 = styled.ul`
     padding: 15px 40px;
     gap: 40px;
 
-    border-radius: 0px 0px 40px 0px;
+    /* border-radius: 0px 0px 40px 0px; */
     background-color: ${theme.colors.fon};
 
     position: absolute;
@@ -140,7 +138,7 @@ export const EventImage = styled.img`
   width: 100%;
   height: auto;
   margin: 0 auto;
-  border-radius: 40px;
+  /* border-radius: 40px; */
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     width: 1056px;
@@ -204,6 +202,7 @@ export const EventDescr = styled.p`
 
 export const BtnBack = styled.button`
   all: unset;
+  margin-bottom: 20px;
 
   display: inline-flex;
   align-items: center;
@@ -229,6 +228,7 @@ export const BtnBack = styled.button`
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     font-size: 24px;
+    margin-bottom: 30px;
   }
 `;
 
@@ -246,15 +246,23 @@ export const ImgBthBox = styled.div`
 export const NavLinkSpecialist = styled(NavLink)`
   color: ${theme.colors.grey2};
   font-family: ${theme.fonts[0]};
-  font-size: ${props => (props.$small ? '10px' : '12px')};
+  /* ${props => (props.$small ? '10px' : '12px')}; */
+  font-size: 17px;
   font-style: normal;
   font-weight: 500;
   line-height: 22.004px;
   cursor: pointer;
-  text-decoration: none;
+  text-decoration: underline;
+  transition: ${theme.transition};
+
+  &:hover,
+  &:focus {
+    color: ${theme.colors.accent};
+  }
+  /* 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     font-size: ${props => (props.$small ? '12px' : '14px')};
-  }
+  } */
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     font-size: ${props => (props.$small ? '16px' : '18px')};
