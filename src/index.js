@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={'Loading'} persistor={persistor}>
-        <BrowserRouter basename="event-shop">
+        <BrowserRouter basename="/">
           <StatusProvider>
             <I18nextProvider i18n={i18n}>
               <GlobalStyle />
