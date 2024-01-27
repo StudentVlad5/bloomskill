@@ -19,6 +19,7 @@ export const App = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
   const permission = useSelector(getPermission);
 
+
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
@@ -32,12 +33,11 @@ export const App = () => {
   const EventDetailsPage = lazy(() => import('pages/EventDetailsPage'));
   const AboutUsPage = lazy(() => import('pages/AboutUsPage'));
   const AdminPage = lazy(() => import('pages/Admin/AdminPage'));
-  const helmetContext = {};
 
   return isRefreshing ? (
     <></>
   ) : (
-    <HelmetProvider context={helmetContext}>
+    <HelmetProvider>
       <Suspense fallback={<div>{'Loading...'}</div>}>
         <Routes>
           <Route path="/" element={<SharedLayout />}>

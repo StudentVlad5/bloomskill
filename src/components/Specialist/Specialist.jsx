@@ -46,6 +46,7 @@ import {
 
 export const Specialist = ({ specialist }) => {
   const { specialistId, image, description, name } = specialist;
+  const descriptionArray = description.split('|&|');
   const [events, setEvents] = useState([]);
   const [activeEvents, setActiveEvents] = useState([]);
   const [specialistEvents, setSpecialistEvents] = useState([]);
@@ -188,19 +189,12 @@ export const Specialist = ({ specialist }) => {
         >
           {name}
         </Headline>
-        <Subtitle
-          style={{ textAlign: 'justify' }}
-          data-aos="fade-left"
-          // data-aos="zoom-in"
-          data-aos-easing="linear"
-          data-aos-duration="1000"
-        >
-          {description}
-        </Subtitle>
+    {descriptionArray && descriptionArray.map(it=><Subtitle key={it} style={{ textAlign: 'justify', textIndent: "60px" }} data-aos="fade-left" data-aos-easing="linear" data-aos-duration="1000">{it}</Subtitle>)}
       </DescriptionSection>
       <EventsSection>
         <Title>
-          {t('Les prochains evenements')} {firstName(name)}
+          {t('Les prochains evenements à un expert')} 
+          {/* {firstName(name)} */}
         </Title>
         {isLoading ? onLoading() : onLoaded()}
         {error && onFetchError(t('Whoops, something went wrong'))}
@@ -209,7 +203,7 @@ export const Specialist = ({ specialist }) => {
           !error && (
             <Subtitle>
               {t(
-                'Nous sommes désolés, le spécialiste ne fait pas les ateliers ces prochains jours'
+                "Nous sommes désolés, l'expert ne fait pas les ateliers ces prochains jours"
               )}
             </Subtitle>
           )}
@@ -556,7 +550,7 @@ export const Specialist = ({ specialist }) => {
           )}
       </EventsSection>
       <MessageSection>
-        <Title>{t('Vous avez des question au spécialiste')}?</Title>
+        <Title>{t('Vous avez des question à un expert?')}?</Title>
         <FormMessage specialist={specialist} />
       </MessageSection>
     </Container>

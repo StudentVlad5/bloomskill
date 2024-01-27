@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import {
   format,
   subMonths,
@@ -17,6 +17,7 @@ import { CalendarIcon } from './Calendar.styled';
 import { saveToStorage } from 'services/localStorService';
 import { ru, uk, fr } from 'date-fns/locale';
 import { useTranslation } from 'react-i18next';
+import { StatusContext } from 'components/ContextStatus/ContextStatus';
 
 const Calendar = ({
   showDetailsHandle,
@@ -31,6 +32,7 @@ const Calendar = ({
   const [currentWeekNumber, setCurrentWeekNumber] = useState(
     getWeek(currentMonth)
   );
+  const { selectedLanguage } = useContext(StatusContext);
 
   const changeMonthHandle = btnType => {
     if (btnType === 'prev') {
@@ -85,15 +87,15 @@ const Calendar = ({
 
   const renderHeader = () => {
     let locale;
-    if (i18n.language === 'fr') {
+    if (selectedLanguage === 'fr') {
       locale = fr;
-    } else if (i18n.language === 'ua') {
+    } else if (selectedLanguage === 'ua') {
       locale = uk;
     } else {
       locale = ru;
     }
 
-    const dateFormat = 'MMMMMMMMM yyyy';
+    const dateFormat = 'LLLLLLLLL yyyy';
     return (
       <div className="header row flex-middle">
         <div className="col col-center">
@@ -102,29 +104,6 @@ const Calendar = ({
       </div>
     );
   };
-
-  // const renderHeader = () => {
-  //   const dateFormat = "MMMMMMMMM yyyy";
-  //   const currentMonthFormat = "MMMMMMMMM";
-  //   const nextMonthFormat = "MMMMMMMMM";
-
-  //   const currentMonthName = format(currentMonth, currentMonthFormat);
-  //   const nextMonthName = format(addMonths(currentMonth, 1), nextMonthFormat);
-
-  //   return (
-  //     <div className="header row flex-middle">
-  //       <div className="col col-center">
-  //         {currentMonthName !== nextMonthName ? (
-  //           <span>
-  //             {currentMonthName} - {nextMonthName}
-  //           </span>
-  //         ) : (
-  //           <span>{currentMonthName}</span>
-  //         )}
-  //       </div>
-  //     </div>
-  //   );
-  // };
 
   const renderDays = () => {
     const dateFormat = 'EEE';
@@ -164,12 +143,8 @@ const Calendar = ({
           >
             <span
               className={`cell number ${
-                isSameDay(day, new Date())
-                  ? 'today'
-                  : isSameDay(day, selectedDate)
-                  ? 'selected'
-                  : ''
-              }`}
+                isSameDay(day, new Date()) ? 'today' : ''
+              } ${isSameDay(day, selectedDate) ? 'selected' : ''}`}
             >
               {formattedDate}
             </span>
@@ -190,19 +165,13 @@ const Calendar = ({
 
   const renderFooter = () => {
     return (
-      // header footer row flex-middle
       <div className="footer">
-        {/* <div className='footer-box'> */}
-        {/* col col-start */}
         <div className="btn-prev" onClick={() => changeWeekHandle('prev')}>
-          {/* <div className="icon" onClick={() => changeWeekHandle('prev')}> */}
           <MdKeyboardArrowLeft size={30} />
         </div>
-        {/* col col-end */}
         <div className="btn-next" onClick={() => changeWeekHandle('next')}>
           <MdKeyboardArrowRight size={30} />
         </div>
-        {/* </div> */}
       </div>
     );
   };
