@@ -93,9 +93,13 @@ export const HeadingItemTitle = styled.span`
   font-weight: 700;
   line-height: 12.02px; /* 80.133% */
   text-transform: uppercase;
+  row-gap: 14px;
 
   @media screen and (min-width: ${theme.breakpoints.tablet}) {
     font-size: 13px;
+    &:last-child {
+    padding-top: 0px;
+  }
   }
 
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
@@ -134,12 +138,26 @@ export const HeadingItemData = styled.span`
   }
 `;
 
+export const HeadingItemDataSpan = styled(HeadingItemData)`
+  width: 80px;
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    width: 100%;
+  }
+`;
+
 export const EventImage = styled.img`
-  width: 100%;
-  height: auto;
+  /* width: 100%;
+  height: auto; */
   margin: 0 auto;
+  object-fit: cover;
+  width: 400px;
+  height: 300px;
   /* border-radius: 40px; */
 
+  @media screen and (min-width: ${theme.breakpoints.tablet}) {
+    width: 600px;
+    height: 500px;
+  }
   @media screen and (min-width: ${theme.breakpoints.desktop}) {
     width: 1056px;
     height: 588px;
@@ -158,11 +176,11 @@ export const EventTextWrapper = styled.div`
 `;
 
 export const EventDescrBox = styled.div`
-  /* margin-bottom: 15px;
-
-  @media screen and (min-width: ${theme.breakpoints.tablet}) {
-    margin-bottom: 25px;
-  } */
+display: flex;
+flex-direction:column;
+justify-content: start ;
+align-items:start;
+gap:4px;
 `;
 export const EventDescrBoxTitle = styled.p`
   color: ${theme.colors.grey1};
