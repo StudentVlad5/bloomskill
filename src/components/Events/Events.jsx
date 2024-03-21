@@ -11,6 +11,7 @@ import Calendar from './Calendar/calendar';
 import { Filters } from './Filters/Filters';
 import { getFromStorage } from 'services/localStorService';
 
+
 export const Events = () => {
   const [events, setEvents] = useState([]);
   const [error, setError] = useState('');
@@ -154,7 +155,7 @@ export const Events = () => {
         />
         {isLoading ? onLoading() : onLoaded()}
         {error && onFetchError('Whoops, something went wrong')}
-        {events.length > 0 && !error && (
+        {!error && (
           <EventsList
             events={events}
             activeEvents={activeEvents}
